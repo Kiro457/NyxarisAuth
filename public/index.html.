@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NYXARIS AUTH</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><div class="mark">N</div><div><div class="brand">NYXARIS <span>AUTH</span></div><div class="muted small">Licensing control panel</div></div><span class="pill">SECURE PANEL</span></header>
+    <section id="loginView" class="login card">
+      <p class="eyebrow">ADMINISTRATOR ACCESS</p><h1>Welcome back.</h1><p class="muted">Sign in to manage projects, users and licenses.</p>
+      <form id="loginForm"><label>Username<input id="username" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><button>Sign in <span>→</span></button><p id="loginError" class="error"></p></form>
+    </section>
+    <section id="appView" hidden>
+      <div class="welcome"><div><p class="eyebrow">OVERVIEW</p><h1>Control center</h1><p class="muted">Manage your NYXARIS licenses.</p></div><button class="secondary" id="logout">Sign out</button></div>
+      <div class="stats">
+        <article class="stat"><span>Projects</span><strong id="sProjects">0</strong></article>
+        <article class="stat"><span>Users</span><strong id="sUsers">0</strong></article>
+        <article class="stat"><span>Active licenses</span><strong id="sActive">0</strong></article>
+        <article class="stat"><span>Unused keys</span><strong id="sUnused">0</strong></article>
+      </div>
+      <div class="columns">
+        <section class="card"><div class="sectionHead"><div><p class="eyebrow">PROJECTS</p><h2>Projects</h2></div></div>
+          <form id="projectForm" class="inlineForm"><input id="projectName" placeholder="Project name" required><input id="projectDesc" placeholder="Description"><button>Create</button></form><div id="projects" class="rows"></div>
+        </section>
+        <section class="card"><div class="sectionHead"><div><p class="eyebrow">LICENSES</p><h2>Generate keys</h2></div></div>
+          <form id="keyForm"><label>Project<select id="keyProject" required></select></label><div class="formGrid"><label>Quantity<input id="keyCount" type="number" min="1" max="50" value="1"></label><label>Duration (days)<input id="keyDays" type="number" min="0" max="3650" value="30"><small>0 = lifetime</small></label></div><button>Generate keys</button></form>
+          <div id="newKeys" class="keyOutput" hidden></div>
+        </section>
+      </div>
+      <section class="card"><div class="sectionHead"><div><p class="eyebrow">ACCESS CONTROL</p><h2>Users</h2></div><button class="secondary" id="refresh">Refresh</button></div>
+        <div class="tableWrap"><table><thead><tr><th>Username</th><th>Project</th><th>Status</th><th>HWID</th><th>Actions</th></tr></thead><tbody id="users"></tbody></table></div>
+      </section>
+      <section class="card"><div class="sectionHead"><div><p class="eyebrow">KEY INVENTORY</p><h2>Recent keys</h2></div></div>
+        <div class="tableWrap"><table><thead><tr><th>Project</th><th>Username</th><th>Status</th><th>Expires</th><th>Action</th></tr></thead><tbody id="keys"></tbody></table></div>
+      </section>
+      <p id="notice" class="notice"></p>
+    </section>
+    <footer>NYXARIS AUTH · Protect your projects.</footer>
+  </main>
+  <script src="/app.js"></script>
+</body></html>
