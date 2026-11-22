@@ -1,1 +1,307 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #09090d;
+  --panel: #111116;
+  --panel2: #17171e;
+  --border: #292932;
+  --red: #e32636;
+  --red-dark: #a91020;
+  --text: #f5f5f7;
+  --muted: #92929e;
+  --success: #36c98b;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #291017 0%, transparent 45%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+a {
+  color: var(--red);
+  text-decoration: none;
+}
+
+/* Layout */
+
+.container, main, .dashboard {
+  width: min(1200px, 94%);
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+header, .topbar, nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  background: rgba(17, 17, 22, .92);
+  border-bottom: 1px solid var(--border);
+}
+
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 21px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Login */
+
+#loginView {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 22px;
+}
+
+#loginView form {
+  width: min(420px, 100%);
+  padding: 36px;
+  background: rgba(17, 17, 22, .96);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 20px 80px #0009;
+}
+
+#loginView h1 {
+  color: var(--red);
+  margin-bottom: 8px;
+  font-size: 30px;
+}
+
+#loginView p {
+  margin-bottom: 24px;
+}
+
+/* Panels and cards */
+
+.card, .panel, section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.stats, .stat-grid, .overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  padding: 22px;
+  background: linear-gradient(145deg, #191920, #101015);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 27px;
+  margin-top: 12px;
+  color: var(--red);
+}
+
+/* Inputs */
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px 14px;
+  margin: 8px 0 16px;
+  color: var(--text);
+  background: #09090e;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  transition: .2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px #e3263620;
+}
+
+label {
+  display: block;
+  color: #c7c7d0;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Buttons */
+
+button, .btn {
+  padding: 12px 18px;
+  color: white;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  border-radius: 9px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+button:hover, .btn:hover {
+  filter: brightness(1.18);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* Tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th, td {
+  padding: 14px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+td {
+  color: #dedee5;
+}
+
+tr:hover td {
+  background: #ffffff05;
+}
+
+/* Status */
+
+.badge, .status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3263620;
+  color: #ff6472;
+}
+
+.success {
+  color: var(--success);
+}
+
+.error, #loginError {
+  color: #ff5968;
+  margin-top: 10px;
+}
+
+/* Dashboard sections */
+
+#appView {
+  min-height: 100vh;
+}
+
+#notice {
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 9px;
+  background: #e3263618;
+  color: #ff7580;
+}
+
+#newKeys {
+  padding: 15px;
+  margin-top: 15px;
+  background: #08080c;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  overflow-wrap: anywhere;
+}
+
+#logout {
+  background: #292932;
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+  .container, main, .dashboard {
+    width: 92%;
+    padding-top: 18px;
+  }
+
+  header, .topbar, nav {
+    padding: 15px;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
+
+  #loginView form {
+    padding: 25px 20px;
+  }
+
+  .card, .panel, section {
+    padding: 16px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  button {
+    max-width: 100%;
+  }
+}
+
